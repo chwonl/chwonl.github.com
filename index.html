@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chwonl's Happy GitHub Page</title>
+  <title>Chwonl's Creative Homepage</title>
   <style>
-    /* CSS styles for the college-themed homepage */
+    /* CSS styles for the creative homepage */
     body {
-      background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #0000ff, #8b00ff);
-      background-size: 1200% 1200%;
-      animation: rainbow 20s ease infinite;
+      background-color: #f8f8f8;
       font-family: 'Arial Black', Gadget, sans-serif;
       text-align: center;
     }
@@ -21,7 +19,7 @@
     }
     
     .main-ellipse {
-      width: 350px;
+      width: 300px;
       height: 200px;
       background-color: #ff9900;
       border-radius: 50%;
@@ -32,43 +30,73 @@
       position: relative;
     }
     
-    .small-circle {
-      width: 1cm;
-      height: 1cm;
-      background-color: grey;
+    .small-shapes {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .small-shape {
+      width: 40px;
+      height: 40px;
+      background-color: #ff7f00;
       border-radius: 50%;
       position: absolute;
-      animation: orbit 6s linear infinite;
+      animation: rotate 4s linear infinite;
     }
     
-    @keyframes orbit {
-      0% {
-        transform: rotate(0deg) translate(120px) rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg) translate(120px) rotate(-360deg);
-      }
+    .small-shape:nth-child(2) {
+      width: 20px;
+      height: 20px;
+      background-color: #00ff00;
+      animation-duration: 6s;
+      animation-delay: -2s;
     }
     
-    @keyframes rainbow {
+    .small-shape:nth-child(3) {
+      width: 30px;
+      height: 30px;
+      background-color: #0000ff;
+      animation-duration: 8s;
+      animation-delay: -3s;
+    }
+    
+    .small-shape:nth-child(4) {
+      width: 25px;
+      height: 25px;
+      background-color: #ff00ff;
+      animation-duration: 5s;
+      animation-delay: -1.5s;
+    }
+    
+    .small-shape:nth-child(5) {
+      width: 35px;
+      height: 35px;
+      background-color: #ffff00;
+      animation-duration: 7s;
+      animation-delay: -4s;
+    }
+    
+    @keyframes rotate {
       0% {
-        background-position: 0% 50%;
+        transform: rotate(0deg);
       }
       100% {
-        background-position: 100% 50%;
+        transform: rotate(360deg);
       }
     }
     
     h1 {
       font-size: 48px;
-      color: #ffffff;
+      color: #ff9900;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
       margin: 0;
     }
     
     .subtitle {
       font-size: 24px;
-      color: #ffffff;
+      color: #555555;
       margin-top: 20px;
     }
   </style>
@@ -76,10 +104,16 @@
 <body>
   <div class="container">
     <div class="main-ellipse">
-      <h1>Chwonl's Happy<br>GitHub Page</h1>
-     
+      <h1>Chwonl's Creative Homepage</h1>
+      <div class="small-shapes">
+        <div class="small-shape"></div>
+        <div class="small-shape"></div>
+        <div class="small-shape"></div>
+        <div class="small-shape"></div>
+        <div class="small-shape"></div>
+      </div>
     </div>
-    <div class="subtitle">Welcome to my <span style="font-weight: bold;">college-themed</span> GitHub page!</div>
+    <div class="subtitle">Welcome to my creative homepage!</div>
   </div>
 </body>
 </html>
