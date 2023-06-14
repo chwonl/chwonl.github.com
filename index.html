@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chwonl's Creative Homepage</title>
+  <title>Chwonl's Moving Circles Homepage</title>
   <style>
-    /* CSS styles for the creative homepage */
+    /* CSS styles for the moving circles homepage */
     body {
-      background-color: #f8f8f8;
-      font-family: 'Arial Black', Gadget, sans-serif;
+      background-color: #f1f1f1;
+      font-family: 'Arial', sans-serif;
       text-align: center;
+      margin: 0;
+      padding: 0;
     }
     
     .container {
@@ -18,7 +20,21 @@
       height: 100vh;
     }
     
-    .main-ellipse {
+    .title {
+      font-size: 48px;
+      font-weight: bold;
+      color: #ff7f00;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      margin-bottom: 30px;
+    }
+    
+    .subtitle {
+      font-size: 24px;
+      color: #555555;
+      margin-bottom: 50px;
+    }
+    
+    .ellipse {
       width: 300px;
       height: 200px;
       background-color: #ff9900;
@@ -30,90 +46,37 @@
       position: relative;
     }
     
-    .small-shapes {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    
-    .small-shape {
+    .circle {
       width: 40px;
       height: 40px;
       background-color: #ff7f00;
       border-radius: 50%;
       position: absolute;
-      animation: orbit 6s linear infinite;
+      animation: circleMove 5s infinite linear;
     }
     
-    .small-shape:nth-child(2) {
-      width: 20px;
-      height: 20px;
-      background-color: #00ff00;
-      animation-duration: 8s;
-      animation-delay: -2s;
-    }
-    
-    .small-shape:nth-child(3) {
-      width: 30px;
-      height: 30px;
-      background-color: #0000ff;
-      animation-duration: 10s;
-      animation-delay: -3s;
-    }
-    
-    .small-shape:nth-child(4) {
-      width: 25px;
-      height: 25px;
-      background-color: #ff00ff;
-      animation-duration: 7s;
-      animation-delay: -1.5s;
-    }
-    
-    .small-shape:nth-child(5) {
-      width: 35px;
-      height: 35px;
-      background-color: #ffff00;
-      animation-duration: 9s;
-      animation-delay: -4s;
-    }
-    
-    @keyframes orbit {
+    @keyframes circleMove {
       0% {
-        transform: rotate(0deg) translate(5cm) rotate(0deg);
+        transform: rotate(0deg) translateX(0);
       }
       100% {
-        transform: rotate(360deg) translate(15cm) rotate(-360deg);
+        transform: rotate(360deg) translateX(130px) rotate(-360deg);
       }
-    }
-    
-    h1 {
-      font-size: 48px;
-      color: #ff9900;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-      margin: 0;
-    }
-    
-    .subtitle {
-      font-size: 24px;
-      color: #555555;
-      margin-top: 20px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="main-ellipse">
-      <h1>Chwonl's Creative Homepage</h1>
-      <div class="small-shapes">
-        <div class="small-shape"></div>
-        <div class="small-shape"></div>
-        <div class="small-shape"></div>
-        <div class="small-shape"></div>
-        <div class="small-shape"></div>
-      </div>
+    <h1 class="title">Chwonl's Moving Circles Homepage</h1>
+    <div class="subtitle">Welcome to a world of moving circles!</div>
+    <div class="ellipse">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
     </div>
-    <div class="subtitle">Welcome to my creative homepage!</div>
   </div>
 </body>
 </html>
