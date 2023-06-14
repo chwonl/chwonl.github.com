@@ -43,14 +43,14 @@
       background-color: #ff7f00;
       border-radius: 50%;
       position: absolute;
-      animation: rotate 4s linear infinite;
+      animation: orbit 6s linear infinite;
     }
     
     .small-shape:nth-child(2) {
       width: 20px;
       height: 20px;
       background-color: #00ff00;
-      animation-duration: 6s;
+      animation-duration: 8s;
       animation-delay: -2s;
     }
     
@@ -58,7 +58,7 @@
       width: 30px;
       height: 30px;
       background-color: #0000ff;
-      animation-duration: 8s;
+      animation-duration: 10s;
       animation-delay: -3s;
     }
     
@@ -66,7 +66,7 @@
       width: 25px;
       height: 25px;
       background-color: #ff00ff;
-      animation-duration: 5s;
+      animation-duration: 7s;
       animation-delay: -1.5s;
     }
     
@@ -74,16 +74,16 @@
       width: 35px;
       height: 35px;
       background-color: #ffff00;
-      animation-duration: 7s;
+      animation-duration: 9s;
       animation-delay: -4s;
     }
     
-    @keyframes rotate {
+    @keyframes orbit {
       0% {
-        transform: rotate(0deg);
+        transform: rotate(0deg) translate(5cm) rotate(0deg);
       }
       100% {
-        transform: rotate(360deg);
+        transform: rotate(360deg) translate(15cm) rotate(-360deg);
       }
     }
     
