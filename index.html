@@ -30,13 +30,13 @@
       position: relative;
     }
     
-    .small-ellipse {
-      width: 10px;
-      height: 6px;
-      background-color: #ffffff;
+    .small-circle {
+      width: 1cm;
+      height: 1cm;
+      background-color: grey;
       border-radius: 50%;
       position: absolute;
-      animation: orbit 8s linear infinite;
+      animation: orbit 6s linear infinite;
     }
     
     @keyframes orbit {
@@ -66,19 +66,13 @@
   <div class="container">
     <div class="main-ellipse">
       <h1>Chwonl's Happy<br>GitHub Page</h1>
-      <!-- Add small ellipses using JavaScript -->
+      <div class="small-circle"></div>
+      <div class="small-circle"></div>
+      <div class="small-circle"></div>
+      <div class="small-circle"></div>
+      <div class="small-circle"></div>
     </div>
     <div class="subtitle">Welcome to my <span style="font-weight: bold;">college-themed</span> GitHub page!</div>
   </div>
-
-  <script>
-    var mainEllipse = document.querySelector('.main-ellipse');
-    for (var i = 0; i < 100; i++) {
-      var smallEllipse = document.createElement('div');
-      smallEllipse.classList.add('small-ellipse');
-      smallEllipse.style.transform = `rotate(${i * 3.6}deg) translate(120px) rotate(-${i * 3.6}deg)`;
-      mainEllipse.appendChild(smallEllipse);
-    }
-  </script>
 </body>
 </html>
