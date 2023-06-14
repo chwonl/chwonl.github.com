@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>chwonl's Happy GitHub Page</title>
+  <title>Chwonl's Happy GitHub Page</title>
   <style>
     /* CSS styles for the college-themed homepage */
     body {
@@ -18,7 +18,7 @@
       height: 100vh;
     }
     
-    .ellipse {
+    .main-ellipse {
       width: 350px;
       height: 200px;
       background-color: #ff9900;
@@ -27,6 +27,25 @@
       justify-content: center;
       align-items: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    
+    .circle {
+      width: 1cm;
+      height: 1cm;
+      background-color: #ffffff;
+      border-radius: 50%;
+      position: absolute;
+      animation: orbit 8s linear infinite;
+    }
+    
+    @keyframes orbit {
+      0% {
+        transform: rotate(0deg) translate(150px) rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg) translate(150px) rotate(-360deg);
+      }
     }
     
     h1 {
@@ -45,10 +64,14 @@
 </head>
 <body>
   <div class="container">
-    <div class="ellipse">
-      <h1>chwonl's Happy<br>GitHub Page</h1>
+    <div class="main-ellipse">
+      <h1>Chwonl's Happy<br>GitHub Page</h1>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <!-- Add more circles if desired -->
     </div>
-    <div class="subtitle">Welcome to my <span style="font-weight: bold;">new</span> GitHub page!</div>
+    <div class="subtitle">Welcome to my <span style="font-weight: bold;">college-themed</span> GitHub page!</div>
   </div>
 </body>
 </html>
