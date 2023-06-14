@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chwonl's Colorful Dot Homepage</title>
+  <title>Chwonl's Blinking Dots Homepage</title>
   <style>
-    /* CSS styles for the dot homepage */
+    /* CSS styles for the blinking dots homepage */
     body {
       background-color: #f1f1f1;
       font-family: 'Arial', sans-serif;
@@ -46,13 +46,13 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="title">Chwonl's Homepage</h1>
-    <div class="subtitle">Welcome!</div>
-    <p> "A creative mind weaving intricate experiences with code and design."</p> <!-- Personal brand statement -->
+    <h1 class="title">Chwonl's Blinking Dots Homepage</h1>
+    <div class="subtitle">Welcome to a world of blinking dots!</div>
+    <p>A creative mind weaving interactive experiences with code and design.</p> <!-- Personal brand statement -->
   </div>
 
   <script>
-    // JavaScript code for the blinking colorful dot animation
+    // JavaScript code for the blinking dots animation
     const canvas = document.createElement('canvas');
     document.body.appendChild(canvas);
     const ctx = canvas.getContext('2d');
@@ -62,7 +62,7 @@
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 200; i++) {
         dots.push(new Dot());
       }
 
@@ -73,38 +73,35 @@
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 10 + 5;
-        this.color = getRandomBlueColor();
-        this.blinkInterval = Math.random() * 1000 + 500;
-        this.isBlinking = true;
-        this.blinkTimeout = setTimeout(() => {
-          this.toggleBlink();
-        }, this.blinkInterval);
+        this.radius = Math.random() * 8 + 3; // Adjust the dot size here
+        this.color = "#0000ff"; // Set all dots to blue
+        this.opacity = Math.random() * 0.5 + 0.1;
+        this.velocity = {
+          x: (Math.random() - 0.5) * 2,
+          y: (Math.random() - 0.5) * 2
+        };
       }
 
       draw() {
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
         ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.opacity;
         ctx.fill();
-        ctx.closePath();
-      }
-
-      toggleBlink() {
-        this.isBlinking = !this.isBlinking;
-
-        if (this.isBlinking) {
-          this.color = getRandomBlueColor();
-        } else {
-          this.color = '#f1f1f1'; // Background color
-        }
-
-        this.blinkTimeout = setTimeout(() => {
-          this.toggleBlink();
-        }, this.blinkInterval);
       }
 
       update() {
+        this.x += this.velocity.x;
+        this.y += this.velocity.y;
+
+        if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+          this.velocity.x = -this.velocity.x;
+        }
+
+        if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
+          this.velocity.y = -this.velocity.y;
+        }
+
         this.draw();
       }
     }
@@ -117,12 +114,6 @@
       }
 
       requestAnimationFrame(animate);
-    }
-
-    function getRandomBlueColor() {
-      const shades = ['4e79a7', 'f28e2b', 'e15759', '76b7b2', '59a14f'];
-      const randomShade = shades[Math.floor(Math.random() * shades.length)];
-      return '#' + randomShade;
     }
 
     window.addEventListener('resize', function() {
