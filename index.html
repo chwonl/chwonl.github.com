@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chwonl's Blinking Dots Homepage</title>
+  <title>Chwonl's Spiderweb Homepage</title>
   <style>
-    /* CSS styles for the blinking dots homepage */
+    /* CSS styles for the spiderweb homepage */
     body {
       background-color: #f1f1f1;
       font-family: 'Arial', sans-serif;
@@ -46,62 +46,57 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="title">Chwonl's Blinking Dots Homepage</h1>
-    <div class="subtitle">Welcome to a world of blinking dots!</div>
-    <p>A creative mind bringing ideas to life with code and design.</p> <!-- Personal brand statement -->
+    <h1 class="title">Chwonl's Spiderweb Homepage</h1>
+    <div class="subtitle">Welcome to the world of spiderwebs!</div>
+    <p>A creative mind weaving interactive experiences with code and design.</p> <!-- Personal brand statement -->
   </div>
 
   <script>
-    // JavaScript code for the blinking dots animation
+    // JavaScript code for the spiderweb animation
     const canvas = document.createElement('canvas');
     document.body.appendChild(canvas);
     const ctx = canvas.getContext('2d');
-    let dots = [];
+    let spiderwebs = [];
 
     function init() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      for (let i = 0; i < 200; i++) {
-        dots.push(new Dot());
+      for (let i = 0; i < 6; i++) {
+        spiderwebs.push(new Spiderweb());
       }
 
       animate();
     }
 
-    class Dot {
+    class Spiderweb {
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.radius = Math.random() * 8 + 3; // Adjust the dot size here
-        this.color = "#0000ff"; // Set all dots to blue
-        this.opacity = Math.random() * 0.5 + 0.1;
-        this.velocity = {
-          x: (Math.random() - 0.5) * 2,
-          y: (Math.random() - 0.5) * 2
-        };
+        this.rotation = Math.random() * Math.PI * 2;
+        this.radius = Math.random() * 100 + 50;
+        this.speed = Math.random() * 0.02 + 0.01;
+        this.lineWidth = Math.random() * 3 + 1;
+        this.color = "#0000ff"; // Blue color
       }
 
       draw() {
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = this.opacity;
-        ctx.fill();
+        ctx.moveTo(this.x, this.y);
+        for (let i = 0; i < 8; i++) {
+          const angle = this.rotation + (i * Math.PI) / 4;
+          const x = this.x + Math.cos(angle) * this.radius;
+          const y = this.y + Math.sin(angle) * this.radius;
+          ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.lineWidth = this.lineWidth;
+        ctx.strokeStyle = this.color;
+        ctx.stroke();
       }
 
       update() {
-        this.x += this.velocity.x;
-        this.y += this.velocity.y;
-
-        if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
-          this.velocity.x = -this.velocity.x;
-        }
-
-        if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
-          this.velocity.y = -this.velocity.y;
-        }
-
+        this.rotation += this.speed;
         this.draw();
       }
     }
@@ -109,8 +104,8 @@
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      for (let i = 0; i < dots.length; i++) {
-        dots[i].update();
+      for (let i = 0; i < spiderwebs.length; i++) {
+        spiderwebs[i].update();
       }
 
       requestAnimationFrame(animate);
