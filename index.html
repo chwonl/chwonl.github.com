@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chwonl's Moving Circles Homepage</title>
+  <title>Chwonl's Pixel Circles Homepage</title>
   <style>
-    /* CSS styles for the moving circles homepage */
+    /* CSS styles for the pixel circles homepage */
     body {
       background-color: #f1f1f1;
       font-family: 'Arial', sans-serif;
@@ -47,29 +47,72 @@
     }
     
     .circle {
-      width: 40px;
-      height: 40px;
-      background-color: #ff7f00;
+      width: 20px;
+      height: 20px;
+      background-color: #00ff00;
       border-radius: 50%;
       position: absolute;
-      animation: circleMove 5s infinite linear;
+      animation: circleMove 4s infinite linear;
     }
     
     @keyframes circleMove {
       0% {
-        transform: rotate(0deg) translateX(0);
+        transform: rotate(0deg) translate(100px) rotate(0deg);
       }
       100% {
-        transform: rotate(360deg) translateX(130px) rotate(-360deg);
+        transform: rotate(360deg) translate(100px) rotate(-360deg);
       }
+    }
+    
+    .circle:nth-child(1) {
+      background-color: #ff0000;
+      top: 30px;
+      left: 0;
+    }
+    
+    .circle:nth-child(2) {
+      background-color: #00ff00;
+      top: 0;
+      left: 30px;
+    }
+    
+    .circle:nth-child(3) {
+      background-color: #0000ff;
+      top: 30px;
+      right: 0;
+    }
+    
+    .circle:nth-child(4) {
+      background-color: #ffff00;
+      bottom: 30px;
+      left: 0;
+    }
+    
+    .circle:nth-child(5) {
+      background-color: #ff00ff;
+      bottom: 0;
+      left: 30px;
+    }
+    
+    .circle:nth-child(6) {
+      background-color: #00ffff;
+      bottom: 30px;
+      right: 0;
+    }
+    
+    .circle:nth-child(7) {
+      background-color: #ff7f00;
+      top: 15px;
+      right: 15px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1 class="title">Chwonl's Moving Circles Homepage</h1>
-    <div class="subtitle">Welcome to a world of moving circles!</div>
+    <h1 class="title">Chwonl's Pixel Circles Homepage</h1>
+    <div class="subtitle">Welcome to a world of pixel-style circles!</div>
     <div class="ellipse">
+      <div class="circle"></div>
       <div class="circle"></div>
       <div class="circle"></div>
       <div class="circle"></div>
