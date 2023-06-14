@@ -72,8 +72,8 @@
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.radius = Math.random() * 3 + 1;
-        this.color = getRandomColor();
+        this.radius = Math.random() * 8 + 3; // Adjust the dot size here
+        this.color = "#0000ff"; // Set all dots to blue
         this.opacity = Math.random() * 0.5 + 0.1;
         this.velocity = {
           x: (Math.random() - 0.5) * 2,
@@ -113,11 +113,6 @@
       }
 
       requestAnimationFrame(animate);
-    }
-
-    function getRandomColor() {
-      const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ff7f00'];
-      return colors[Math.floor(Math.random() * colors.length)];
     }
 
     window.addEventListener('resize', function() {
