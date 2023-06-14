@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chwonl's Homepage</title>
+  <title>Chwonl's Blinking Dots Homepage</title>
   <style>
-    /* CSS styles for the homepage */
+    /* CSS styles for the blinking dots homepage */
     body {
       background-color: #f1f1f1;
       font-family: 'Arial', sans-serif;
@@ -35,36 +35,6 @@
       margin-bottom: 50px;
     }
     
-    .ellipse {
-      width: 300px;
-      height: 200px;
-      background-color: #ff9900;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      position: relative;
-    }
-    
-    .circle {
-      width: 20px;
-      height: 20px;
-      background-color: #00ff00;
-      border-radius: 50%;
-      position: absolute;
-      animation: circleMove 4s infinite linear;
-    }
-    
-    @keyframes circleMove {
-      0% {
-        transform: rotate(0deg) translate(100px) rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg) translate(100px) rotate(-360deg);
-      }
-    }
-    
     canvas {
       position: absolute;
       top: 0;
@@ -76,17 +46,8 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="title">Chwonl's Homepage</h1>
-    <div class="subtitle">Welcome to a world of moving circles and blinking dots!</div>
-    <div class="ellipse">
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
-    </div>
+    <h1 class="title">Chwonl's Blinking Dots Homepage</h1>
+    <div class="subtitle">Welcome to a world of blinking dots!</div>
   </div>
 
   <script>
