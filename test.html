@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage with Animation</title>
+    <style>
+        /* CSS for the homepage layout */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 id="heading">Welcome to My Homepage!</h1>
+            <p id="message">This is a homepage with animation.</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for the animation
+        var heading = document.getElementById('heading');
+        var message = document.getElementById('message');
+        var startTime;
+
+        function animate(timestamp) {
+            if (!startTime) {
+                startTime = timestamp;
+            }
+            var progress = timestamp - startTime;
+
+            // Modify animation properties as per your requirements
+            heading.style.transform = 'translateX(' + progress / 10 + 'px)';
+            message.style.opacity = progress / 1000;
+
+            if (progress < 2000) {  // Adjust the duration of the animation
+                requestAnimationFrame(animate);
+            }
+        }
+
+        requestAnimationFrame(animate);
+    </script>
+</body>
+</html>
