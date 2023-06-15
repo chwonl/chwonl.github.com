@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Homepage with Repeating Animation</title>
+    <title>Homepage with ProgressBar.js Animation</title>
     <style>
         /* CSS for the homepage layout */
         body {
@@ -18,51 +18,37 @@
             height: 100vh;
         }
         
-        .content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
+        .progress-container {
+            width: 200px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="content">
-            <h1 id="heading">Welcome to My Homepage!</h1>
-            <p id="message">This is a homepage with a repeating animation.</p>
+        <div class="progress-container">
+            <div id="progress-bar"></div>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.0.1/progressbar.min.js"></script>
     <script>
         // JavaScript for the animation
-        var heading = document.getElementById('heading');
-        var message = document.getElementById('message');
-        var startTime;
+        var progressBar = new ProgressBar.Circle('#progress-bar', {
+            color: '#007bff',
+            strokeWidth: 3,
+            trailWidth: 1,
+            duration: 2000, // Adjust the animation duration
+            easing: 'easeInOut'
+        });
 
-        function animate(timestamp) {
-            if (!startTime) {
-                startTime = timestamp;
-            }
-            var progress = timestamp - startTime;
+        progressBar.animate(1); // Starts the animation from 0 to 1
 
-            // Modify animation properties as per your requirements
-            var translationX = progress / 10;
-            var opacity = progress / 1000;
-
-            // Adjust the desired duration and reset the animation
-            if (progress > 2000) {
-                startTime = timestamp;
-                translationX = 0;
-                opacity = 0;
-            }
-
-            heading.style.transform = 'translateX(' + translationX + 'px)';
-            message.style.opacity = opacity;
-
-            requestAnimationFrame(animate);
-        }
-
-        requestAnimationFrame(animate);
+        // You can also customize the animation behavior
+        // progressBar.animate(1, {
+        //     duration: 2000,
+        //     easing: 'easeInOut'
+        // });
     </script>
 </body>
 </html>
