@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage with Anime.js Animation</title>
+    <style>
+        /* CSS for the homepage layout */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .text {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text">chwonl</h1>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+    <script>
+        // JavaScript for the animation
+        var textElement = document.querySelector('.text');
+
+        // Create the animation using Anime.js
+        var animation = anime.timeline({
+            loop: true, // Set to true for continuous animation
+            easing: 'easeInOutSine'
+        });
+
+        // Animate the text
+        animation.add({
+            targets: textElement,
+            duration: 1000, // Adjust the duration of each animation step
+            delay: anime.stagger(100), // Delay between each letter animation
+            opacity: [0, 1],
+            translateY: ['-50%', '0%']
+        });
+
+        // You can add more animation steps or modify the properties as needed
+        // animation.add({
+        //     targets: textElement,
+        //     duration: 1000,
+        //     delay: anime.stagger(100),
+        //     opacity: [1, 0],
+        //     translateY: ['0%', '50%']
+        // });
+
+        // Start the animation
+        animation.play();
+    </script>
+</body>
+</html>
