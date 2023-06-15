@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Homepage with ProgressBar.js Animation</title>
+    <title>Homepage with ProgressBar.js Animation and Percent Number</title>
     <style>
         /* CSS for the homepage layout */
         body {
@@ -22,12 +22,18 @@
             width: 200px;
             text-align: center;
         }
+        
+        .progress-label {
+            font-size: 20px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="progress-container">
             <div id="progress-bar"></div>
+            <div id="progress-label" class="progress-label"></div>
         </div>
     </div>
 
@@ -36,18 +42,25 @@
         // JavaScript for the animation
         var progressBar = new ProgressBar.Circle('#progress-bar', {
             color: '#007bff',
-            strokeWidth: 8,
-            trailWidth: 10,
-            duration: 6000, // Adjust the animation duration
+            strokeWidth: 3,
+            trailWidth: 1,
+            duration: 20000, // Adjust the animation duration
             easing: 'easeInOut'
         });
 
-        progressBar.animate(1); // Starts the animation from 0 to 1
+        progressBar.animate(1, {
+            step: function(state, circle) {
+                circle.setText(Math.round(circle.value() * 100) + '%');
+            }
+        });
 
         // You can also customize the animation behavior
         // progressBar.animate(1, {
-        //     duration: 6000,
-        //     easing: 'easeInOut'
+        //     duration: 2000,
+        //     easing: 'easeInOut',
+        //     step: function(state, circle) {
+        //         circle.setText(Math.round(circle.value() * 100) + '%');
+        //     }
         // });
     </script>
 </body>
